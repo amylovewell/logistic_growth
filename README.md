@@ -1,10 +1,15 @@
 1. I used "experiment1.csv" for the assignment. The first part of the analysis was in the plot_data file, in which 2 graphs were made. The first one plotted the number of cells against the time, and it shows an exponential growth when N (the number of cells) is much smaller than K (the carrying capacity). This is because there were not a limiting amount of resources, and so the bacteria were able to grow exponentially until it reached this point. It then reaches equillibrium (a constant population size) at around 2500 minutes, with a carrying capacity of 6e+10. However, the second graph allows us to see the stages of this logistic growth more clearly, as it is a semi-log plot, where the x axis remains linear, but the y axis is log transformed. Because of this, the graph shows 2 linear relationships. The first is a positive linear relationship between the time and the log number of cells, and this is valid where approximately t < 1700 minutes. The second linear relationship is from where the population size levels off, from after where t > 2500 approximately, and this is where N = K.
   
-  
-   Because of the linear relationships shown by the second graph, we could fit linear models to each of the stages, to work out certain parameters. For the first linear 
+   Because of the linear relationships shown by the second graph, we could fit linear models to each of the stages, to work out certain parameters. The first linear model was for when N << K, and so I subsetted the data and filtered it to only where t < 1700. From this, the linear model returned values for the initial population size, known as N0:(exp(6.927845)), and for the rate of growth, known as r: (0.009944). For the second linear model, from where N = K, I subsetted the data again and filtered it only to values where t > 2500, as this is when the number of cells had levelled off again and there was a linear relationship. This linear model allowed us to obtain the carrying capacity (K) parameter, which was 6e+10. Using these values for N0, r and K, I then made a logistic growth function using the logistic growth equation, and plotted the model as a line against the growth data as a scatter, and from viewing the graph, the model fits the data well, as the model line fits the shape of the curve very closely.
 
-5. Answers
 
-6. ![image](https://github.com/anonymousoxford/logistic_growth/assets/150164144/afc0718e-ef70-47b9-bb71-17159c29ee12)
+
+2. When t = 4980 minutes, under the exponential model, the population size is estimated to be 3.27698164369414e+24. However, under the logistic model, the population size is estimated to be 59999999999.9989. The logistic population size is very close to 6e+10, which is the carrying capacity, and so I believe the difference to be due to rounding errors and slightly incorrect values for >t< whilst making the model, as we would expect the population size to have reached the carrying capacity at this time. However, you can see that the population size is much higher in the exponential model, than it is in the logistic model. The exponential populatoin size is more than 5e+13 times larger than in the logistic model, and this is because the exponential model does not account for the limiting nature of resources, and so assumes that the population size can grow exponentially indefinitely. However, the logistic model caps the population size at the carrying capacity due to limiting resources such as nutrients and space.
+
+   My code showing the working out for question 2 can be found in the file "Question 2 and 3 code (exponential and logistic curve plot code)".
+
+3. My R script containing the code to make the following graph comparing logistic and exponential growth curves can be found in the file "Question 2 and 3 code (exponential and logistic curve plot code)".
+   
+ ![image](https://github.com/anonymousoxford/logistic_growth/assets/150164144/afc0718e-ef70-47b9-bb71-17159c29ee12)
 
 
